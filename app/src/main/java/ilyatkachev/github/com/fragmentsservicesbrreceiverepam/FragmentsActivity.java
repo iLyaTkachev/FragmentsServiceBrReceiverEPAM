@@ -38,7 +38,7 @@ public class FragmentsActivity extends AppCompatActivity implements Fragment1.on
     @Override
     public void sendResult(String s) {
         Bundle bundle = new Bundle();
-        bundle.putString("resultString",s);
+        bundle.putString(getString(R.string.key_for_result_string),s);
         Fragment2 frag2 = new Fragment2();
         frag2.setArguments(bundle);
         replaceFragmentInContainer(R.id.fragments_cont, frag2, true);
