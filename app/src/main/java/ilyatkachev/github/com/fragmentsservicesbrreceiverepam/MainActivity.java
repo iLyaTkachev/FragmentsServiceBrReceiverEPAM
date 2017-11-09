@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mFirstTimerEdit = (EditText)findViewById(R.id.first_timer_edit);
-        mSecondTimerEdit = (EditText)findViewById(R.id.second_timer_edit);
+        mFirstTimerEdit = (EditText) findViewById(R.id.first_timer_edit);
+        mSecondTimerEdit = (EditText) findViewById(R.id.second_timer_edit);
 
         mOpenAuthActivityBtn = findViewById(R.id.open_auth_btn);
         mOpenAuthActivityBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,14 +61,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        int result = data.getIntExtra(Constants.RESULT_KEY, 0);
-        switch (requestCode) {
-            case Constants.TASK1_KEY:
-                //some action
-                break;
-            case Constants.TASK2_KEY:
-                //another action
-                break;
+
+        if (resultCode == Constants.SERVICE_FINISH_STATUS) {
+            int result = data.getIntExtra(Constants.RESULT_KEY, 0);
+            switch (requestCode) {
+                case Constants.TASK1_KEY:
+                    //some action
+                    break;
+                case Constants.TASK2_KEY:
+                    //another action
+                    break;
+            }
         }
     }
 
